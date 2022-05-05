@@ -1,24 +1,105 @@
 # json-server-base
 
-Esse é o repositório com a base de JSON-Server + JSON-Server-Auth já configurada, feita para ser usada no desenvolvimento das API's nos Capstones do Q2.
-
 ## Endpoints
 
-Assim como a documentação do JSON-Server-Auth traz (https://www.npmjs.com/package/json-server-auth), existem 3 endpoints que podem ser utilizados para cadastro e 2 endpoints que podem ser usados para login.
+Utilize o endereço http://localhost:3001/ para fazer requisições ou enviar dados para o servidor.
 
-### Cadastro
+### Criar um usuário - POST
 
-POST /register <br/>
-POST /signup <br/>
-POST /users
+http://localhost:3001/users
 
-Qualquer um desses 3 endpoints irá cadastrar o usuário na lista de "Users", sendo que os campos obrigatórios são os de email e password.
-Você pode ficar a vontade para adicionar qualquer outra propriedade no corpo do cadastro dos usuários.
+Para criar um usuário é preciso enviar um objeto JSON contendo, pelo menos as informações de email e password. Ex:
+
+{
+    
+    method: "post",
+    headers : {
+        "Content-Type": "application/json",
+    },
+
+    body: {
+        "email": "user@mailexample.com",
+        "password": "123456"
+    }   
+
+}
+    
+
+### Criar um post - POST
+
+http://localhost:3001/posts
+
+Para criar um post é preciso enviar um objeto JSON contendo, pelo menos as informações sobre o conteúdo da postagem e o ID do usuário, através da chave "userId", passando o respectivo ID do usuário cadastrado no sitema. Ex:
+
+{
+    
+    method: "post",
+    headers : {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer" + token
+    },
+    body: {
+        "content": "lorem ipsum",
+        "userId": "1"
+    }    
+}
 
 
-### Login
+### Listar as postagens - GET
 
-POST /login <br/>
-POST /signin
+Para as postagens basta fazer uma requisição para a URL: http://localhost:3001/posts
 
-Qualquer um desses 2 endpoints pode ser usado para realizar login com um dos usuários cadastrados na lista de "Users"
+
+### Listar uma postagem - GET
+
+Para ter acesso a uma postagem, basta fazer uma requisição para a URL: http://localhost:3001/posts/:id
+
+
+### Criar um perfil com informações exclusivas do usuário - POST
+
+http://localhost:3001/profile
+
+
+{
+
+    method: "post",
+    headers : {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer" + token
+    },
+    body: {
+        "content": "lorem ipsum",
+        "userId": "1"
+    }  
+
+}
+
+### Ler as informações exclusivas dos perfis de todos os usuários - GET
+
+Para fazer essa operação, é obrigatório estar logado no sistema.
+
+http://localhost:3001/profile/
+
+{
+
+    method: "get",
+    headers : {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer" + token
+      
+}
+
+### Ler as informações de um perfil específico de usuário - GET
+
+Para fazer essa operação, é obrigatório estar logado no sistema.
+
+http://localhost:3001/profile/:id
+
+{
+
+    method: "get",
+    headers : {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer" + token
+      
+}

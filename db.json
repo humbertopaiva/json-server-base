@@ -6,6 +6,53 @@
       "name": "Kenzinho",
       "age": 38,
       "id": 1
+    },
+    {
+      "email": "humberto@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "email": "humberto@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "email": "doisberto@mail.com",
+      "password": "$2a$10$b9IlGRFRVhyRw8CvnNN3PuP5s2gS/1DSx2uPp2onSVWUPYgfAxhva",
+      "id": 4
+    }
+  ],
+  "posts": [
+    {
+      "title": "Teste de título",
+      "content": "sauhsuashaushaushaushuah",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "title": "Teste de título 2",
+      "content": "sauhsuashaushaushaushuah",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "title": "Teste de título 3",
+      "content": "sauhsuashaushaushaushuah",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "title": "Teste de título 4",
+      "content": "sauhsuashaushaushaushuah",
+      "userId": 2,
+      "id": 4
+    }
+  ],
+  "profile": [
+    {
+      "content": "blablabla",
+      "id": 1
     }
   ]
 }
